@@ -33,7 +33,7 @@
             padding: 20px;
         }
 
-        /* ===== 卡片容器（不使用 backdrop-filter） ===== */
+        /* ===== 卡片容器 ===== */
         .card {
             max-width: 720px;
             width: 100%;
@@ -104,7 +104,6 @@
             margin-bottom: 8px;
             text-decoration: none;
             color: #1e293b;
-            /* 兼容 iOS 6 的阴影 */
             -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
         }
@@ -113,7 +112,7 @@
             margin-bottom: 0;
         }
 
-        /* 使用 table 布局实现图标、文字、描述的并排 */
+        /* 使用 table 布局实现图标和名称的并排 */
         .link-inner {
             display: table;
             width: 100%;
@@ -137,27 +136,15 @@
             word-break: break-word;
         }
 
-        .link-desc-cell {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: right;
-            font-size: 12px;
-            color: #64748b;
-            background: #f1f4f9;
-            padding: 2px 10px;
-            border-radius: 16px;
-            white-space: nowrap;
-            width: 1%;
-        }
-
-        /* 注释单独成行，使用块级元素 */
+        /* 注释显示：域名｜简介，放在下方 */
         .link-note {
             display: block;
             font-size: 13px;
             color: #64748b;
             padding-top: 4px;
-            padding-left: 42px;
+            padding-left: 42px; /* 与图标对齐 */
             line-height: 1.4;
+            word-break: break-all;
         }
 
         .footer-note {
@@ -170,8 +157,6 @@
         }
 
         /* ===== 深色模式（使用类名切换，兼容 iOS 6） ===== */
-        /* 默认浅色模式下的样式已在上面定义，深色模式通过 body.dark 覆盖 */
-
         body.dark {
             background: #0f172a;
             background: -webkit-gradient(linear, left top, right bottom, from(#0f172a), to(#1e293b));
@@ -215,11 +200,6 @@
             color: #f1f5f9;
         }
 
-        body.dark .link-desc-cell {
-            color: #94a3b8;
-            background: #2d3a4f;
-        }
-
         body.dark .link-note {
             color: #94a3b8;
         }
@@ -244,19 +224,11 @@
                 font-size: 14px;
                 padding-left: 8px;
             }
-            .link-desc-cell {
-                font-size: 11px;
-                padding: 1px 8px;
-                white-space: normal;
-                word-break: break-all;
-            }
             .link-note {
                 padding-left: 38px;
                 font-size: 12px;
             }
         }
-
-        /* iOS 6 及更早版本不支持 @media，但样式仍然可用 */
     </style>
 </head>
 <body>
@@ -285,9 +257,8 @@
                     <span class="link-inner">
                         <span class="link-icon-cell">📺</span>
                         <span class="link-name-cell">我的 Bilibili 主页</span>
-                        <span class="link-desc-cell">B站空间</span>
                     </span>
-                    <span class="link-note">随便发点视频，跟这个网站没有半毛钱关系</span>
+                    <span class="link-note">space.bilibili.com/3546906038897288｜随便发点视频，跟这个网站没有半毛钱关系</span>
                 </a>
 
                 <!-- 2. Agricu -->
@@ -295,9 +266,8 @@
                     <span class="link-inner">
                         <span class="link-icon-cell">🌾</span>
                         <span class="link-name-cell">Agricu 的主页</span>
-                        <span class="link-desc-cell">repo.agricu.cn</span>
                     </span>
-                    <span class="link-note">Safari网页在线越狱</span>
+                    <span class="link-note">repo.agricu.cn｜Safari网页在线越狱</span>
                 </a>
 
                 <!-- 3. AppDoge -->
@@ -305,9 +275,8 @@
                     <span class="link-inner">
                         <span class="link-icon-cell">🐕</span>
                         <span class="link-name-cell">AppDoge 应用商店</span>
-                        <span class="link-desc-cell">appdoge.cn</span>
                     </span>
-                    <span class="link-note">爱思正版APP下载</span>
+                    <span class="link-note">appdoge.cn｜爱思正版APP下载</span>
                 </a>
 
                 <!-- 4. 爱思助手 -->
@@ -315,9 +284,8 @@
                     <span class="link-inner">
                         <span class="link-icon-cell">🛠️</span>
                         <span class="link-name-cell">爱思助手官网</span>
-                        <span class="link-desc-cell">i4.cn</span>
                     </span>
-                    <span class="link-note">iOS搞机必备工具</span>
+                    <span class="link-note">i4.cn｜iOS搞机必备工具</span>
                 </a>
 
                 <!-- 5. Laochen IPA -->
@@ -325,9 +293,8 @@
                     <span class="link-inner">
                         <span class="link-icon-cell">📦</span>
                         <span class="link-name-cell">Laochen IPA 下载站</span>
-                        <span class="link-desc-cell">laochenipa.mysxl.cn</span>
                     </span>
-                    <span class="link-note">个人维护的IPA下载网站</span>
+                    <span class="link-note">laochenipa.mysxl.cn｜个人维护的IPA下载网站</span>
                 </a>
 
                 <!-- 6. LukeZGD -->
@@ -335,9 +302,8 @@
                     <span class="link-inner">
                         <span class="link-icon-cell">🧑‍💻</span>
                         <span class="link-name-cell">LukeZGD 的主页</span>
-                        <span class="link-desc-cell">lukezgd.github.io</span>
                     </span>
-                    <span class="link-note">Legacy iOS kit和EverPwnage的作者</span>
+                    <span class="link-note">lukezgd.github.io｜Legacy iOS kit和EverPwnage的作者</span>
                 </a>
 
                 <!-- 7. 王大帅 -->
@@ -345,9 +311,8 @@
                     <span class="link-inner">
                         <span class="link-icon-cell">📱</span>
                         <span class="link-name-cell">王大帅 iOS6 应用下载</span>
-                        <span class="link-desc-cell">ios6.wangdashuaihenshuai.work</span>
                     </span>
-                    <span class="link-note">个人维护的原创应用程序IPA下载网站</span>
+                    <span class="link-note">ios6.wangdashuaihenshuai.work｜个人维护的原创应用程序IPA下载网站</span>
                 </a>
 
                 <!-- 8. 云天 IPA -->
@@ -355,9 +320,8 @@
                     <span class="link-inner">
                         <span class="link-icon-cell">☁️</span>
                         <span class="link-name-cell">云天 IPA 下载站</span>
-                        <span class="link-desc-cell">ytipa.mysxl.cn</span>
                     </span>
-                    <span class="link-note">个人维护的IPA下载网站</span>
+                    <span class="link-note">ytipa.mysxl.cn｜个人维护的IPA下载网站</span>
                 </a>
 
             </div>
@@ -372,10 +336,8 @@
     <!-- ===== 深色模式检测脚本（兼容 iOS 6） ===== -->
     <script>
         (function() {
-            // 检测浏览器是否支持 matchMedia
             if (window.matchMedia) {
                 var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-                // 定义切换函数
                 function toggleDarkMode(e) {
                     if (e.matches) {
                         document.body.classList.add('dark');
@@ -383,17 +345,12 @@
                         document.body.classList.remove('dark');
                     }
                 }
-                // 立即执行一次
                 toggleDarkMode(darkModeQuery);
-                // 监听变化（iOS 6 不支持 addEventListener，但支持 addListener）
                 if (darkModeQuery.addListener) {
                     darkModeQuery.addListener(toggleDarkMode);
                 } else if (darkModeQuery.addEventListener) {
                     darkModeQuery.addEventListener('change', toggleDarkMode);
                 }
-            } else {
-                // 降级方案：如果浏览器不支持 matchMedia，可以通过时间或固定为浅色模式
-                // 这里我们什么都不做，保持默认浅色
             }
         })();
     </script>
