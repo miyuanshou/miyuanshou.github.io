@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miyuanshou的游戏链接</title>
+    <style>
+        /* ===== 基础重置 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f7fa;
+            /* 兼容 iOS 6 的渐变写法 */
+            background: -webkit-gradient(linear, left top, right bottom, from(#f5f7fa), to(#c3cfe2));
+            background: -webkit-linear-gradient(top left, #f5f7fa, #c3cfe2);
+            background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+            min-height: 100%;
+            min-height: 100vh;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* ===== 卡片容器 ===== */
+        .card {
+            max-width: 720px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 28px;
+            padding: 35px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            -webkit-box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ===== 返回按钮 ===== */
+        .back-button {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #1e293b;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            border: 1px solid #cbd5e1;
+            -webkit-transition: background 0.2s;
+            transition: background 0.2s;
+        }
+
+        .back-button:hover {
+            background: #cbd5e1;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .subhead {
+            font-size: 16px;
+            color: #475569;
+            border-left: 4px solid #3b82f6;
+            padding: 8px 14px;
+            margin-top: 4px;
+            margin-bottom: 24px;
+            background: rgba(59, 130, 246, 0.06);
+            border-radius: 6px;
+        }
+
+        .bio {
+            background: #f8fafc;
+            padding: 16px 18px;
+            border-radius: 14px;
+            margin-bottom: 28px;
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .bio strong {
+            color: #0f172a;
+        }
+
+        .links-section {
+            margin-top: 6px;
+        }
+
+        .links-section h2 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 14px;
+        }
+
+        /* ===== 链接列表 ===== */
+        .link-list {
+            display: block;
+            width: 100%;
+        }
+
+        .link-item {
+            display: block;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #e9edf2;
+            margin-bottom: 8px;
+            text-decoration: none;
+            color: #1e293b;
+            -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .link-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-inner {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .link-icon-cell {
+            display: table-cell;
+            width: 32px;
+            vertical-align: middle;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .link-name-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 10px;
+            font-weight: 500;
+            font-size: 15px;
+            word-break: break-word;
+        }
+
+        .link-note {
+            display: block;
+            font-size: 13px;
+            color: #64748b;
+            padding-top: 4px;
+            padding-left: 42px;
+            line-height: 1.4;
+            word-break: break-all;
+        }
+
+        .footer-note {
+            margin-top: 36px;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+
+        /* ===== 深色模式 ===== */
+        body.dark {
+            background: #0f172a;
+            background: -webkit-gradient(linear, left top, right bottom, from(#0f172a), to(#1e293b));
+            background: -webkit-linear-gradient(top left, #0f172a, #1e293b);
+            background: linear-gradient(to bottom right, #0f172a, #1e293b);
+        }
+
+        body.dark .card {
+            background: rgba(30, 41, 59, 0.92);
+            border-color: rgba(255, 255, 255, 0.08);
+            -webkit-box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark .back-button {
+            background: #334155;
+            color: #f1f5f9;
+            border-color: #475569;
+        }
+
+        body.dark .back-button:hover {
+            background: #475569;
+        }
+
+        body.dark h1 {
+            color: #f1f5f9;
+        }
+
+        body.dark .subhead {
+            color: #cbd5e1;
+            background: rgba(59, 130, 246, 0.12);
+        }
+
+        body.dark .bio {
+            background: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        body.dark .bio strong {
+            color: #f8fafc;
+        }
+
+        body.dark .links-section h2 {
+            color: #cbd5e1;
+        }
+
+        body.dark .link-item {
+            background: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        body.dark .link-note {
+            color: #94a3b8;
+        }
+
+        body.dark .footer-note {
+            color: #64748b;
+            border-color: #334155;
+        }
+
+        /* ===== 移动端适配 ===== */
+        @media (max-width: 500px) {
+            .card {
+                padding: 22px 16px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .link-item {
+                padding: 10px 14px;
+            }
+            .link-name-cell {
+                font-size: 14px;
+                padding-left: 8px;
+            }
+            .link-note {
+                padding-left: 38px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 返回按钮 -->
+        <a href="https://miyuanshou.github.io" class="back-button">← 返回主页</a>
+
+        <!-- 标题区 -->
+        <h1>🎮 网页小游戏合集</h1>
+        <div class="subhead">
+            🕹️ 在浏览器中直接游玩，无需下载
+        </div>
+
+        <!-- 简介 -->
+        <div class="bio">
+            <strong>📖 关于本页</strong><br>
+            这里收集了一些可以直接在浏览器中游玩的网页游戏，涵盖经典移植和在线游戏平台。
+            所有游戏均来自第三方开发者或团队，尽情享受吧！
+        </div>
+
+        <!-- 游戏链接区域 -->
+        <div class="links-section">
+            <h2>🎯 游戏链接</h2>
+            <div class="link-list">
+
+                <!-- 1. GTA Vice City -->
+                <a href="https://dos.zone/revcdos" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">🏙️</span>
+                        <span class="link-name-cell">GTA Vice City</span>
+                    </span>
+                    <span class="link-note">dos.zone/revcdos｜DOS Zone团队将GTA罪恶都市移植到了网页上</span>
+                </a>
+
+                <!-- 2. Minecraft -->
+                <a href="https://mcjs.cc" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">⛏️</span>
+                        <span class="link-name-cell">Minecraft</span>
+                    </span>
+                    <span class="link-note">mcjs.cc｜MCJS团队将Minecraft移植到了网页上</span>
+                </a>
+
+                <!-- 3. Poki -->
+                <a href="https://poki.com" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">🎮</span>
+                        <span class="link-name-cell">Poki</span>
+                    </span>
+                    <span class="link-note">poki.com｜一个在线小游戏网站，里面的游戏都够玩一辈子了</span>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            © 2026 miyuanshou · 用 ❤️ 和 GitHub Pages 搭建
+        </div>
+    </div>
+
+    <!-- ===== 深色模式检测脚本 ===== -->
+    <script>
+        (function() {
+            if (window.matchMedia) {
+                var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                function toggleDarkMode(e) {
+                    if (e.matches) {
+                        document.body.classList.add('dark');
+                    } else {
+                        document.body.classList.remove('dark');
+                    }
+                }
+                toggleDarkMode(darkModeQuery);
+                if (darkModeQuery.addListener) {
+                    darkModeQuery.addListener(toggleDarkMode);
+                } else if (darkModeQuery.addEventListener) {
+                    darkModeQuery.addEventListener('change', toggleDarkMode);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
