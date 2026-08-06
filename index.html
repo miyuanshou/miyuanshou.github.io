@@ -142,9 +142,20 @@
             font-size: 13px;
             color: #64748b;
             padding-top: 4px;
-            padding-left: 42px; /* 与图标对齐 */
+            padding-left: 42px;
             line-height: 1.4;
             word-break: break-all;
+        }
+
+        /* ===== 分隔线 ===== */
+        .divider {
+            border: none;
+            border-top: 1.5px dashed #cbd5e1;
+            margin: 16px 0 18px 0;
+        }
+
+        body.dark .divider {
+            border-top-color: #475569;
         }
 
         .footer-note {
@@ -247,12 +258,30 @@
             所有收集的站点均为个人爱好者维护，请合理使用。
         </div>
 
-        <!-- 友情链接区域 -->
+        <!-- 链接区域 -->
         <div class="links-section">
-            <h2>🔗 友情链接</h2>
+            <!-- ===== "我的" 栏目 ===== -->
+            <h2>📌 我的</h2>
             <div class="link-list">
+                <!-- 1. GitHub 主页 -->
+                <a href="https://github.com/miyuanshou" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">🐙</span>
+                        <span class="link-name-cell">我的 GitHub 主页</span>
+                    </span>
+                    <span class="link-note">github.com/miyuanshou｜啥都没有</span>
+                </a>
 
-                <!-- 1. B站 (置顶) -->
+                <!-- 2. 游戏页面快捷入口 -->
+                <a href="https://miyuanshou.github.io/gamelinks.html" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">🎮</span>
+                        <span class="link-name-cell">网页游戏合集</span>
+                    </span>
+                    <span class="link-note">miyuanshou.github.io/gamelinks.html｜收集了可直接在浏览器游玩的网页游戏</span>
+                </a>
+
+                <!-- 3. B站主页 -->
                 <a href="https://space.bilibili.com/3546906038897288" target="_blank" rel="noopener noreferrer" class="link-item">
                     <span class="link-inner">
                         <span class="link-icon-cell">📺</span>
@@ -260,8 +289,15 @@
                     </span>
                     <span class="link-note">space.bilibili.com/3546906038897288｜随便发点视频，跟这个网站没有半毛钱关系</span>
                 </a>
+            </div>
 
-                <!-- 2. Agricu -->
+            <!-- ===== 虚线分隔线 ===== -->
+            <hr class="divider">
+
+            <!-- ===== "友情链接" 栏目 ===== -->
+            <h2>🔗 友情链接</h2>
+            <div class="link-list">
+                <!-- 1. Agricu -->
                 <a href="https://repo.agricu.cn" target="_blank" rel="noopener noreferrer" class="link-item">
                     <span class="link-inner">
                         <span class="link-icon-cell">🌾</span>
@@ -270,7 +306,7 @@
                     <span class="link-note">repo.agricu.cn｜Safari网页在线越狱</span>
                 </a>
 
-                <!-- 3. AppDoge -->
+                <!-- 2. AppDoge -->
                 <a href="https://appdoge.cn" target="_blank" rel="noopener noreferrer" class="link-item">
                     <span class="link-inner">
                         <span class="link-icon-cell">🐕</span>
@@ -279,7 +315,7 @@
                     <span class="link-note">appdoge.cn｜爱思正版APP下载</span>
                 </a>
 
-                <!-- 4. 爱思助手 -->
+                <!-- 3. 爱思助手 -->
                 <a href="https://i4.cn" target="_blank" rel="noopener noreferrer" class="link-item">
                     <span class="link-inner">
                         <span class="link-icon-cell">🛠️</span>
@@ -288,7 +324,7 @@
                     <span class="link-note">i4.cn｜iOS搞机必备工具</span>
                 </a>
 
-                <!-- 5. Laochen IPA -->
+                <!-- 4. Laochen IPA -->
                 <a href="https://laochenipa.mysxl.cn" target="_blank" rel="noopener noreferrer" class="link-item">
                     <span class="link-inner">
                         <span class="link-icon-cell">📦</span>
@@ -297,7 +333,7 @@
                     <span class="link-note">laochenipa.mysxl.cn｜个人维护的IPA下载网站</span>
                 </a>
 
-                <!-- 6. LukeZGD -->
+                <!-- 5. LukeZGD -->
                 <a href="https://lukezgd.github.io" target="_blank" rel="noopener noreferrer" class="link-item">
                     <span class="link-inner">
                         <span class="link-icon-cell">🧑‍💻</span>
@@ -306,7 +342,7 @@
                     <span class="link-note">lukezgd.github.io｜Legacy iOS kit和EverPwnage的作者</span>
                 </a>
 
-                <!-- 7. 王大帅 -->
+                <!-- 6. 王大帅 -->
                 <a href="https://ios6.wangdashuaihenshuai.work" target="_blank" rel="noopener noreferrer" class="link-item">
                     <span class="link-inner">
                         <span class="link-icon-cell">📱</span>
@@ -315,7 +351,7 @@
                     <span class="link-note">ios6.wangdashuaihenshuai.work｜个人维护的原创应用程序IPA下载网站</span>
                 </a>
 
-                <!-- 8. 云天 IPA -->
+                <!-- 7. 云天 IPA -->
                 <a href="https://ytipa.mysxl.cn" target="_blank" rel="noopener noreferrer" class="link-item">
                     <span class="link-inner">
                         <span class="link-icon-cell">☁️</span>
@@ -323,7 +359,6 @@
                     </span>
                     <span class="link-note">ytipa.mysxl.cn｜个人维护的IPA下载网站</span>
                 </a>
-
             </div>
         </div>
 
