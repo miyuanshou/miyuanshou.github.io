@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>miyuanshou | 老iOS设备支持资源</title>
+    <title>miyuanshou的主页</title>
     <style>
-        /* 全局样式与基础重置 */
+        /* ===== 基础重置 ===== */
         * {
             margin: 0;
             padding: 0;
@@ -13,63 +13,65 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f7fa;
+            /* 兼容 iOS 6 的渐变写法 */
+            background: -webkit-gradient(linear, left top, right bottom, from(#f5f7fa), to(#c3cfe2));
+            background: -webkit-linear-gradient(top left, #f5f7fa, #c3cfe2);
+            background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+            min-height: 100%;
             min-height: 100vh;
+            display: -webkit-box;
+            display: -webkit-flex;
             display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
             justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
             align-items: center;
             padding: 20px;
         }
 
+        /* ===== 卡片容器（不使用 backdrop-filter） ===== */
         .card {
             max-width: 720px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 32px;
-            padding: 40px 35px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 28px;
+            padding: 35px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            -webkit-box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
         }
 
         h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 28px;
+            font-weight: bold;
             color: #1e293b;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .subhead {
-            font-size: 1rem;
+            font-size: 16px;
             color: #475569;
             border-left: 4px solid #3b82f6;
-            padding-left: 14px;
+            padding: 8px 14px;
             margin-top: 4px;
-            margin-bottom: 28px;
-            font-weight: 400;
-            background: rgba(59, 130, 246, 0.04);
-            padding: 10px 16px;
-            border-radius: 8px;
+            margin-bottom: 24px;
+            background: rgba(59, 130, 246, 0.06);
+            border-radius: 6px;
         }
 
         .bio {
             background: #f8fafc;
-            padding: 18px 20px;
-            border-radius: 16px;
-            margin-bottom: 32px;
+            padding: 16px 18px;
+            border-radius: 14px;
+            margin-bottom: 28px;
             border: 1px solid #e2e8f0;
             color: #1e293b;
-            font-size: 1rem;
+            font-size: 15px;
             line-height: 1.6;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
         }
 
         .bio strong {
@@ -77,110 +79,190 @@
         }
 
         .links-section {
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .links-section h2 {
-            font-size: 1.1rem;
+            font-size: 17px;
             font-weight: 600;
             color: #334155;
-            letter-spacing: 0.3px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin-bottom: 14px;
         }
 
-        .links-section h2:before {
-            content: "🔗";
-            font-size: 1.2rem;
-        }
-
+        /* ===== 链接列表（使用 table 布局以保证 iOS 6 兼容） ===== */
         .link-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            display: block;
+            width: 100%;
         }
 
         .link-item {
-            display: flex;
-            align-items: center;
+            display: block;
             background: white;
-            padding: 14px 20px;
-            border-radius: 14px;
+            padding: 12px 16px;
+            border-radius: 12px;
             border: 1px solid #e9edf2;
-            transition: all 0.2s ease;
+            margin-bottom: 8px;
             text-decoration: none;
             color: #1e293b;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            /* 兼容 iOS 6 的阴影 */
+            -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
         }
 
-        .link-item:hover {
-            background: #f1f5f9;
-            border-color: #b9c7da;
-            transform: translateX(6px);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+        .link-item:last-child {
+            margin-bottom: 0;
         }
 
-        .link-icon {
-            font-size: 1.3rem;
-            margin-right: 14px;
-            width: 28px;
+        /* 使用 table 布局实现图标、文字、描述的并排 */
+        .link-inner {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .link-icon-cell {
+            display: table-cell;
+            width: 32px;
+            vertical-align: middle;
+            font-size: 20px;
             text-align: center;
-            flex-shrink: 0;
         }
 
-        .link-name {
+        .link-name-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 10px;
             font-weight: 500;
-            flex: 1;
+            font-size: 15px;
+            word-break: break-word;
         }
 
-        .link-desc {
-            font-size: 0.8rem;
+        .link-desc-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            font-size: 12px;
             color: #64748b;
             background: #f1f4f9;
             padding: 2px 10px;
-            border-radius: 20px;
+            border-radius: 16px;
             white-space: nowrap;
+            width: 1%;
+        }
+
+        /* 注释单独成行，使用块级元素 */
+        .link-note {
+            display: block;
+            font-size: 13px;
+            color: #64748b;
+            padding-top: 4px;
+            padding-left: 42px;
+            line-height: 1.4;
         }
 
         .footer-note {
-            margin-top: 40px;
+            margin-top: 36px;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 13px;
             color: #94a3b8;
             border-top: 1px solid #e2e8f0;
-            padding-top: 24px;
+            padding-top: 20px;
         }
 
-        /* 针对小屏手机的优化 */
+        /* ===== 深色模式（使用类名切换，兼容 iOS 6） ===== */
+        /* 默认浅色模式下的样式已在上面定义，深色模式通过 body.dark 覆盖 */
+
+        body.dark {
+            background: #0f172a;
+            background: -webkit-gradient(linear, left top, right bottom, from(#0f172a), to(#1e293b));
+            background: -webkit-linear-gradient(top left, #0f172a, #1e293b);
+            background: linear-gradient(to bottom right, #0f172a, #1e293b);
+        }
+
+        body.dark .card {
+            background: rgba(30, 41, 59, 0.92);
+            border-color: rgba(255, 255, 255, 0.08);
+            -webkit-box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark h1 {
+            color: #f1f5f9;
+        }
+
+        body.dark .subhead {
+            color: #cbd5e1;
+            background: rgba(59, 130, 246, 0.12);
+        }
+
+        body.dark .bio {
+            background: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        body.dark .bio strong {
+            color: #f8fafc;
+        }
+
+        body.dark .links-section h2 {
+            color: #cbd5e1;
+        }
+
+        body.dark .link-item {
+            background: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        body.dark .link-desc-cell {
+            color: #94a3b8;
+            background: #2d3a4f;
+        }
+
+        body.dark .link-note {
+            color: #94a3b8;
+        }
+
+        body.dark .footer-note {
+            color: #64748b;
+            border-color: #334155;
+        }
+
+        /* ===== 移动端适配 ===== */
         @media (max-width: 500px) {
             .card {
-                padding: 28px 18px;
+                padding: 22px 16px;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 24px;
             }
             .link-item {
-                flex-wrap: wrap;
-                padding: 12px 16px;
+                padding: 10px 14px;
             }
-            .link-desc {
+            .link-name-cell {
+                font-size: 14px;
+                padding-left: 8px;
+            }
+            .link-desc-cell {
+                font-size: 11px;
+                padding: 1px 8px;
                 white-space: normal;
-                margin-top: 4px;
-                margin-left: 42px; /* 与图标对齐 */
-                width: 100%;
-                background: transparent;
-                padding-left: 0;
-                color: #64748b;
+                word-break: break-all;
+            }
+            .link-note {
+                padding-left: 38px;
+                font-size: 12px;
             }
         }
+
+        /* iOS 6 及更早版本不支持 @media，但样式仍然可用 */
     </style>
 </head>
 <body>
     <div class="card">
         <!-- 标题区 -->
-        <h1>👋 你好, 我是 miyuanshou</h1>
+        <h1>👋 你好，我是 miyuanshou</h1>
         <div class="subhead">
             📱 为老 iOS 设备提供支持资源
         </div>
@@ -195,42 +277,89 @@
 
         <!-- 友情链接区域 -->
         <div class="links-section">
-            <h2>友情链接</h2>
+            <h2>🔗 友情链接</h2>
             <div class="link-list">
-                <!-- 1. LukeZGD 的主页 -->
-                <a href="https://lukezgd.github.io" target="_blank" rel="noopener noreferrer" class="link-item">
-                    <span class="link-icon">🧑‍💻</span>
-                    <span class="link-name">LukeZGD 的主页</span>
-                    <span class="link-desc">lukezgd.github.io</span>
-                </a>
 
-                <!-- 2. 云天 IPA 下载站 -->
-                <a href="https://ytipa.mysxl.cn" target="_blank" rel="noopener noreferrer" class="link-item">
-                    <span class="link-icon">☁️</span>
-                    <span class="link-name">云天 IPA 下载站</span>
-                    <span class="link-desc">ytipa.mysxl.cn</span>
-                </a>
-
-                <!-- 3. AppDoge 应用商店 -->
-                <a href="https://appdoge.cn" target="_blank" rel="noopener noreferrer" class="link-item">
-                    <span class="link-icon">🐕</span>
-                    <span class="link-name">AppDoge 应用商店</span>
-                    <span class="link-desc">appdoge.cn</span>
-                </a>
-
-                <!-- 4. Laochen IPA 下载站 -->
-                <a href="https://laochenipa.mysxl.cn" target="_blank" rel="noopener noreferrer" class="link-item">
-                    <span class="link-icon">📦</span>
-                    <span class="link-name">Laochen IPA 下载站</span>
-                    <span class="link-desc">laochenipa.mysxl.cn</span>
-                </a>
-
-                <!-- 5. 你的 Bilibili 主页 -->
+                <!-- 1. B站 (置顶) -->
                 <a href="https://space.bilibili.com/3546906038897288" target="_blank" rel="noopener noreferrer" class="link-item">
-                    <span class="link-icon">📺</span>
-                    <span class="link-name">我的 Bilibili 主页</span>
-                    <span class="link-desc">B站空间</span>
+                    <span class="link-inner">
+                        <span class="link-icon-cell">📺</span>
+                        <span class="link-name-cell">我的 Bilibili 主页</span>
+                        <span class="link-desc-cell">B站空间</span>
+                    </span>
+                    <span class="link-note">随便发点视频，跟这个网站没有半毛钱关系</span>
                 </a>
+
+                <!-- 2. Agricu -->
+                <a href="https://repo.agricu.cn" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">🌾</span>
+                        <span class="link-name-cell">Agricu 的主页</span>
+                        <span class="link-desc-cell">repo.agricu.cn</span>
+                    </span>
+                    <span class="link-note">Safari网页在线越狱</span>
+                </a>
+
+                <!-- 3. AppDoge -->
+                <a href="https://appdoge.cn" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">🐕</span>
+                        <span class="link-name-cell">AppDoge 应用商店</span>
+                        <span class="link-desc-cell">appdoge.cn</span>
+                    </span>
+                    <span class="link-note">爱思正版APP下载</span>
+                </a>
+
+                <!-- 4. 爱思助手 -->
+                <a href="https://i4.cn" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">🛠️</span>
+                        <span class="link-name-cell">爱思助手官网</span>
+                        <span class="link-desc-cell">i4.cn</span>
+                    </span>
+                    <span class="link-note">iOS搞机必备工具</span>
+                </a>
+
+                <!-- 5. Laochen IPA -->
+                <a href="https://laochenipa.mysxl.cn" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">📦</span>
+                        <span class="link-name-cell">Laochen IPA 下载站</span>
+                        <span class="link-desc-cell">laochenipa.mysxl.cn</span>
+                    </span>
+                    <span class="link-note">个人维护的IPA下载网站</span>
+                </a>
+
+                <!-- 6. LukeZGD -->
+                <a href="https://lukezgd.github.io" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">🧑‍💻</span>
+                        <span class="link-name-cell">LukeZGD 的主页</span>
+                        <span class="link-desc-cell">lukezgd.github.io</span>
+                    </span>
+                    <span class="link-note">Legacy iOS kit和EverPwnage的作者</span>
+                </a>
+
+                <!-- 7. 王大帅 -->
+                <a href="https://ios6.wangdashuaihenshuai.work" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">📱</span>
+                        <span class="link-name-cell">王大帅 iOS6 应用下载</span>
+                        <span class="link-desc-cell">ios6.wangdashuaihenshuai.work</span>
+                    </span>
+                    <span class="link-note">个人维护的原创应用程序IPA下载网站</span>
+                </a>
+
+                <!-- 8. 云天 IPA -->
+                <a href="https://ytipa.mysxl.cn" target="_blank" rel="noopener noreferrer" class="link-item">
+                    <span class="link-inner">
+                        <span class="link-icon-cell">☁️</span>
+                        <span class="link-name-cell">云天 IPA 下载站</span>
+                        <span class="link-desc-cell">ytipa.mysxl.cn</span>
+                    </span>
+                    <span class="link-note">个人维护的IPA下载网站</span>
+                </a>
+
             </div>
         </div>
 
@@ -239,5 +368,34 @@
             © 2026 miyuanshou · 用 ❤️ 和 GitHub Pages 搭建
         </div>
     </div>
+
+    <!-- ===== 深色模式检测脚本（兼容 iOS 6） ===== -->
+    <script>
+        (function() {
+            // 检测浏览器是否支持 matchMedia
+            if (window.matchMedia) {
+                var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                // 定义切换函数
+                function toggleDarkMode(e) {
+                    if (e.matches) {
+                        document.body.classList.add('dark');
+                    } else {
+                        document.body.classList.remove('dark');
+                    }
+                }
+                // 立即执行一次
+                toggleDarkMode(darkModeQuery);
+                // 监听变化（iOS 6 不支持 addEventListener，但支持 addListener）
+                if (darkModeQuery.addListener) {
+                    darkModeQuery.addListener(toggleDarkMode);
+                } else if (darkModeQuery.addEventListener) {
+                    darkModeQuery.addEventListener('change', toggleDarkMode);
+                }
+            } else {
+                // 降级方案：如果浏览器不支持 matchMedia，可以通过时间或固定为浅色模式
+                // 这里我们什么都不做，保持默认浅色
+            }
+        })();
+    </script>
 </body>
 </html>
